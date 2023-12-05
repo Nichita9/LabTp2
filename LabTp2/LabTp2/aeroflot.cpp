@@ -2,6 +2,7 @@
 
 Aeroflot::Aeroflot(std::string& destination, std::string& aircraft_type, int& flight_number)
 {
+	std::cout << "Вызван конструктор со значениями Aeroflot\n";
 	this->destination_ = destination;
 	this->aircraft_type_ = aircraft_type;
 	this->flight_number_ = flight_number;

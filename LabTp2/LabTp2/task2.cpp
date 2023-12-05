@@ -18,15 +18,26 @@ void Task2()
 		}
 		std::ostringstream os;
 		std::string s[3];
+		bool is_sentence = false;
 		int i = 0;
 		while (!fin.eof()&&i<3)
 		{
 			std::string c;
 			fin >> c;
+			if (s[i] == "" && ((static_cast<int>(c[0]) >= 65 && static_cast<int>(c[0]) <= 90) || (static_cast<int>(c[0]) >= -64 && static_cast<int>(c[0]) <= -33)))
+			{
+				is_sentence = true;
+			}
 			s[i] += c + ' ';
 			if (*(c.end()-1) == '.')
 			{
-				i++;
+				if (is_sentence)
+				{
+					i++;
+					is_sentence = false;
+				}
+				else
+					s[i] = "";
 			}
 		}
 		for (int j = i-1; j >= 0; --j)
